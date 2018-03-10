@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.6" client="site" method="upgrade">
+	<name>MOD_MAGICGALLERYCAMERA</name>
+	<author>Todor Iliev</author>
+	<copyright>Copyright (C) 2016 Todor Iliev ( ITPrism.com )</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.en.html GNU/GPLv3</license>
+	<authorEmail>todor@itprism.com</authorEmail>
+	<authorUrl>http://itprism.com</authorUrl>
+	<version>1.3</version>
+	<creationDate>04 November, 2016</creationDate>
+	<description><![CDATA[
+    <p>Magic Gallery Camera is a module that displays a slideshow gallery, powered by <a href="http://www.pixedelic.com/plugins/camera/" target="_blank">Camera</a>.</p>
+    <p><a href="http://itprism.com/" target="_blank">Subscribe for the newsletter</a> to receive <strong>gifts</strong>, <strong>discount codes</strong>, information about <strong>updates</strong> and information about <strong>new ITPrism extensions</strong>.</p>
+    <p>Please, <a href="#" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
+	]]></description>
+
+	<help url="MOD_MAGICGALLERYCAMERA_HELP_URL" />
+
+	<files>
+		<filename module="mod_magicgallerycamera">mod_magicgallerycamera.php</filename>
+		<filename>README.md</filename>
+
+        <folder>tmpl</folder>
+        <folder>language</folder>
+	</files>
+
+	<config>
+		<fields name="params" addfieldpath="/administrator/components/com_magicgallery/models/fields">
+			<fieldset name="basic">
+                 <field name="gallery_id" type="mggallery" label="MOD_MAGICGALLERYCAMERA_GALLERY" description="MOD_MAGICGALLERYCAMERA_GALLERY_DESC" required="true" published="1" />
+                 <field name="selector" type="text" label="MOD_MAGICGALLERYCAMERA_SELECTOR" description="MOD_MAGICGALLERYCAMERA_SELECTOR_DESC" default="mg-mod-camera" required="true"/>
+                 <field name="effect" type="list" default="random" label="MOD_MAGICGALLERYCAMERA_EFFECT" description="MOD_MAGICGALLERYCAMERA_CAMERA_EFFECT_DESC" >
+                    <option value="random">random</option>
+                    <option value="simpleFade">simpleFade</option>
+                    <option value="curtainTopLeft">curtainTopLeft</option>
+                    <option value="curtainTopRight">curtainTopRight</option>
+                    <option value="curtainBottomLeft">curtainBottomLeft</option>
+                    <option value="curtainBottomRight">curtainBottomRight</option>
+                    <option value="curtainSliceLeft">curtainSliceLeft</option>
+                    <option value="curtainSliceRight">curtainSliceRight</option>
+                    <option value="blindCurtainTopLeft">blindCurtainTopLeft</option>
+                    <option value="blindCurtainTopRight">blindCurtainTopRight</option>
+                    <option value="blindCurtainBottomLeft">blindCurtainBottomLeft</option>
+                    <option value="blindCurtainBottomRight">blindCurtainBottomRight</option>
+                    <option value="blindCurtainSliceBottom">blindCurtainSliceBottom</option>
+                    <option value="blindCurtainSliceTop">blindCurtainSliceTop</option>
+                    <option value="stampede">stampede</option>
+                    <option value="mosaic">mosaic</option>
+                    <option value="mosaicReverse">mosaicReverse</option>
+                    <option value="mosaicRandom">mosaicRandom</option>
+                    <option value="mosaicSpiral">mosaicSpiral</option>
+                    <option value="mosaicSpiralReverse">mosaicSpiralReverse</option>
+                    <option value="topLeftBottomRight">topLeftBottomRight</option>
+                    <option value="bottomRightTopLeft">bottomRightTopLeft</option>
+                    <option value="bottomLeftTopRight">bottomLeftTopRight</option>
+                    <option value="bottomLeftTopRight">bottomLeftTopRight</option>
+                    <option value="scrollLeft">scrollLeft</option>
+                    <option value="scrollRight">scrollRight</option>
+                    <option value="scrollHorz">scrollHorz</option>
+                    <option value="scrollBottom">scrollBottom</option>
+                    <option value="scrollTop">scrollTop</option>
+                </field>
+                
+	             <field name="alignment" type="list" default="center" label="MOD_MAGICGALLERYCAMERA_ALIGNMENT" description="MOD_MAGICGALLERYCAMERA_CAMERA_ALIGNMENT_DESC">
+	                <option value="topLeft">topLeft</option>
+	                <option value="topCenter">topCenter</option>
+	                <option value="topRight">topRight</option>
+	                <option value="centerLeft">centerLeft</option>
+	                <option value="center">center</option>
+	                <option value="centerRight">centerRight</option>
+	                <option value="bottomLeft">bottomLeft</option>
+	                <option value="bottomCenter">bottomCenter</option>
+	                <option value="bottomRight">bottomRight</option>
+	            </field>
+	            <field name="auto_advance" type="radio" default="1" label="MOD_MAGICGALLERYCAMERA_AUTO_ADVANCE" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            
+	            <field name="bar_direction" type="list" default="leftToRight" label="MOD_MAGICGALLERYCAMERA_BAR_DIRECTION" description="MOD_MAGICGALLERYCAMERA_CAMERA_BAR_DIRECTION_DESC">
+	                <option value="leftToRight">leftToRight</option>
+	                <option value="rightToLeft">rightToLeft</option>
+	                <option value="topToBottom">topToBottom</option>
+	                <option value="bottomToTop">bottomToTop</option>
+	            </field>
+	            <field name="bar_position" type="list" default="bottom" label="MOD_MAGICGALLERYCAMERA_BAR_POSITION" description="MOD_MAGICGALLERYCAMERA_CAMERA_BAR_POSITION_DESC">
+	                <option value="left">left</option>
+	                <option value="right">right</option>
+	                <option value="top">top</option>
+	                <option value="bottom">bottom</option>
+	            </field>
+	            
+	            <field name="navigation" type="radio" default="1" label="MOD_MAGICGALLERYCAMERA_NAVIGATION" description="MOD_MAGICGALLERYCAMERA_CAMERA_NAVIGATION_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            <field name="navigation_hover" type="radio" default="1" label="MOD_MAGICGALLERYCAMERA_NAVIGATION_HOVER" description="MOD_MAGICGALLERYCAMERA_CAMERA_NAVIGATION_HOVER_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            <field name="pagination" type="radio" default="1" label="MOD_MAGICGALLERYCAMERA_PAGINATION" description="MOD_MAGICGALLERYCAMERA_CAMERA_PAGINATION_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            <field name="play_pause" type="radio" default="1" label="MOD_MAGICGALLERYCAMERA_PLAY_PAUSE" description="MOD_MAGICGALLERYCAMERA_CAMERA_PLAY_PAUSE_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            <field name="pause_click" type="radio" default="1" label="MOD_MAGICGALLERYCAMERA_PAUSE_ON_CLICK" description="MOD_MAGICGALLERYCAMERA_CAMERA_PAUSE_ON_CLICK_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            
+	            <field name="time" type="text" default="7000" label="MOD_MAGICGALLERYCAMERA_TIME" description="MOD_MAGICGALLERYCAMERA_CAMERA_TIME_DESC" />
+	            <field name="trans_period" type="text" default="1500" label="MOD_MAGICGALLERYCAMERA_TRANS_PERIOD" description="MOD_MAGICGALLERYCAMERA_CAMERA_TRANS_PERIOD_DESC" />
+	            
+	            <field name="linkable" type="radio" default="0" label="MOD_MAGICGALLERYCAMERA_LINK" description="MOD_MAGICGALLERYCAMERA_CAMERA_LINK_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+	            
+	            <field name="link_target" type="list" default="_blank" label="MOD_MAGICGALLERYCAMERA_LINK_TARGET" description="MOD_MAGICGALLERYCAMERA_CAMERA_LINK_TARGET_DESC">
+	                <option value="_blank">_blank</option>
+	                <option value="_new">_new</option>
+	                <option value="_parent">_parent</option>
+	                <option value="_self">_self</option>
+	                <option value="_top">_top</option>
+	            </field>
+	            
+	            <field name="thumbnails" type="radio" default="0" label="MOD_MAGICGALLERYCAMERA_THUMBNAILS" description="MOD_MAGICGALLERYCAMERA_CAMERA_THUMBNAILS_DESC" class="btn-group">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+	            </field>
+            
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+
+				<field name="cachemode" type="hidden" default="static">
+					<option value="static"></option>
+				</field>
+			</fieldset>
+
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" priority="1" name="Magic Gallery Package">http://cdn.itprism.com/updates/magicgallery/mod_magicgallerycamera.xml</server>
+	</updateservers>
+</extension>
